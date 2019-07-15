@@ -17,7 +17,7 @@ struct rcutest
 };
 
 _Atomic struct rcutest *gp;
-_Atomic struct rcutest *gsgp;
+_Atomic struct rcutest * _Dependent_ptr gsgp;
 
 #define rcu_assign_pointer(p,v)		\
   atomic_store_explicit(&(p), (v), memory_order_release);
@@ -27,7 +27,7 @@ _Atomic struct rcutest *gsgp;
 
 void thread0 ()
 {
-  _Dependent_ptr struct rcutest *p;
+  struct rcutest *p;
 
   p = (struct rcutest *)malloc (sizeof (*p));
   assert (p);
@@ -37,13 +37,13 @@ void thread0 ()
 
 void thread1 ()
 {
-  _Dependent_ptr struct rcutest *p = rcu_dereference (gp);		/* { dg-warning "\\\[-Wincompatible-pointer-types]" } */
+  struct rcutest * _Dependent_ptr p = rcu_dereference (gp);		/* { dg-warning "\\\[-Wincompatible-pointer-types]" } */
   atomic_store_explicit(&gsgp, p, memory_order_relaxed);		/* { dg-warning "\\\[-Wincompatible-pointer-types]" } */
 }
 
 void thread2 ()
 {
-  struct rcutest *p;
+  struct rcutest * _Dependent_ptr p;
 
   p = atomic_load_explicit(&gsgp, memory_order_relaxed);		/* { dg-warning "\\\[-Wincompatible-pointer-types]" } */
   if (p)

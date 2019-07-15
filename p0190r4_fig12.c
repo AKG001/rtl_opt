@@ -17,12 +17,6 @@ struct rcutest
   int c;
 };
 
-struct rcutest1
-{
-  int a;
-  struct rcutest rt;
-};
-
 _Atomic struct rcutest *gp;
 
 #define rcu_assign_pointer(p,v)		\
@@ -33,7 +27,7 @@ _Atomic struct rcutest *gp;
 
 void thread0 ()
 {
-  _Dependent_ptr struct rcutest *p;
+  struct rcutest *p;
 
   p = (struct rcutest *)malloc (sizeof (*p));
   assert (p);
@@ -43,8 +37,8 @@ void thread0 ()
 
 void thread1 ()
 {
-  _Dependent_ptr struct rcutest *p;
-  _Dependent_ptr struct rcutest1 *q;
+  struct rcutest * _Dependent_ptr p;
+  struct rcutest * _Dependent_ptr q;
   
   p = rcu_dereference (gp);		/* { dg-warning "\\\[-Wincompatible-pointer-types]" } */
   q = p;                /* { dg-warning "\\\[-Wincompatible-pointer-types]" } */

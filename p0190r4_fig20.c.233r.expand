@@ -1,0 +1,187 @@
+
+;; Function thread0 (thread0, funcdef_no=0, decl_uid=1981, cgraph_uid=1, symbol_order=1)
+
+
+;; Generating RTL for gimple basic block 2
+
+
+try_optimize_cfg iteration 1
+
+Merging block 3 into block 2...
+Merged blocks 2 and 3.
+Merged 2 and 3 without moving.
+Merging block 4 into block 2...
+Merged blocks 2 and 4.
+Merged 2 and 4 without moving.
+
+
+try_optimize_cfg iteration 2
+
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 3 NOTE_INSN_DELETED)
+(note 3 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(note 2 3 5 2 NOTE_INSN_FUNCTION_BEG)
+(insn 5 2 6 2 (set (reg:DI 5 di)
+        (const_int 16 [0x10])) "p0190r4_fig20.c":32:14 -1
+     (nil))
+(call_insn 6 5 7 2 (set (reg:DI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("malloc") [flags 0x41]  <function_decl 0x7f692c625f00 malloc>) [0 __builtin_malloc S1 A8])
+            (const_int 0 [0]))) "p0190r4_fig20.c":32:14 -1
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 7 6 8 2 (set (reg/f:DI 85)
+        (reg:DI 0 ax)) "p0190r4_fig20.c":32:14 -1
+     (expr_list:REG_NOALIAS (reg/f:DI 85)
+        (nil)))
+(insn 8 7 9 2 (set (reg/v/f:DI 84 [ p ])
+        (reg/f:DI 85)) "p0190r4_fig20.c":32:14 -1
+     (nil))
+(insn 9 8 10 2 (set (reg:DI 5 di)
+        (reg/v/f:DI 84 [ p ])) "p0190r4_fig20.c":33:3 -1
+     (nil))
+(insn 10 9 11 2 (set (reg:QI 0 ax)
+        (const_int 0 [0])) "p0190r4_fig20.c":33:3 -1
+     (nil))
+(call_insn 11 10 12 2 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("assert") [flags 0x41]  <function_decl 0x7f692c6aad00 assert>) [0 assert S1 A8])
+            (const_int 0 [0]))) "p0190r4_fig20.c":33:3 -1
+     (nil)
+    (expr_list (use (reg:QI 0 ax))
+        (expr_list:DI (use (reg:DI 5 di))
+            (nil))))
+(insn 12 11 13 2 (set (mem:SI (reg/v/f:DI 84 [ p ]) [1 *p_5+0 S4 A64])
+        (const_int -1 [0xffffffffffffffff])) "p0190r4_fig20.c":34:8 -1
+     (nil))
+(insn 13 12 14 2 (set (mem:SI (plus:DI (reg/v/f:DI 84 [ p ])
+                (const_int 168 [0xa8])) [1 MEM[(int *)p_5 + 168B]+0 S4 A64])
+        (const_int 42 [0x2a])) "p0190r4_fig20.c":35:9 -1
+     (nil))
+(insn 14 13 15 2 (parallel [
+            (set (reg:DI 86)
+                (plus:DI (reg/v/f:DI 84 [ p ])
+                    (const_int 4 [0x4])))
+            (clobber (reg:CC 17 flags))
+        ]) "p0190r4_fig20.c":36:3 -1
+     (nil))
+(insn 15 14 16 2 (set (mem/v:BLK (scratch:DI) [0  A8])
+        (unspec:BLK [
+                (mem/v:BLK (scratch:DI) [0  A8])
+            ] UNSPEC_MEMORY_BLOCKAGE)) "p0190r4_fig20.c":36:3 -1
+     (nil))
+(insn 16 15 0 2 (set (mem/v:DI (symbol_ref:DI ("gip") [flags 0x2]  <var_decl 0x7f692c6b2000 gip>) [-1  S8 A64])
+        (unspec:DI [
+                (reg:DI 86)
+                (const_int 3 [0x3])
+            ] UNSPEC_STA)) "p0190r4_fig20.c":36:3 -1
+     (nil))
+
+;; Function thread1 (thread1, funcdef_no=1, decl_uid=1987, cgraph_uid=2, symbol_order=2)
+
+
+;; Generating RTL for gimple basic block 2
+
+;; Generating RTL for gimple basic block 3
+
+;; Generating RTL for gimple basic block 4
+
+
+try_optimize_cfg iteration 1
+
+Merging block 3 into block 2...
+Merged blocks 2 and 3.
+Merged 2 and 3 without moving.
+Edge 2->5 redirected to 6
+Merging block 5 into block 4...
+Merged blocks 4 and 5.
+Merged 4 and 5 without moving.
+
+
+try_optimize_cfg iteration 2
+
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 3 NOTE_INSN_DELETED)
+(note 3 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(note 2 3 5 2 NOTE_INSN_FUNCTION_BEG)
+(insn 5 2 6 2 (set (reg:DI 82 [ _1 ])
+        (mem/v:DI (symbol_ref:DI ("gip") [flags 0x2]  <var_decl 0x7f692c6b2000 gip>) [-1  S8 A64])) "p0190r4_fig20.c":43:7 -1
+     (nil))
+(insn 6 5 7 2 (set (mem/v:BLK (scratch:DI) [0  A8])
+        (unspec:BLK [
+                (mem/v:BLK (scratch:DI) [0  A8])
+            ] UNSPEC_MEMORY_BLOCKAGE)) "p0190r4_fig20.c":43:7 -1
+     (nil))
+(insn 7 6 8 2 (set (reg/f:DI 83 [ _2 ])
+        (reg:DI 82 [ _1 ])) "p0190r4_fig20.c":43:7 -1
+     (nil))
+(insn 8 7 9 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [2 p+0 S8 A64])
+        (reg/f:DI 83 [ _2 ])) "p0190r4_fig20.c":43:5 -1
+     (nil))
+(insn 9 8 10 2 (set (reg/f:DI 84 [ p.2_3 ])
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [2 p+0 S8 A64])) "p0190r4_fig20.c":44:7 -1
+     (nil))
+(insn 10 9 11 2 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg/f:DI 84 [ p.2_3 ])
+            (const_int 0 [0]))) "p0190r4_fig20.c":44:6 -1
+     (nil))
+(jump_insn 11 10 12 2 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref:DI 25)
+            (pc))) "p0190r4_fig20.c":44:6 659 {*jcc}
+     (int_list:REG_BR_PROB 499612076 (nil))
+ -> 25)
+(note 12 11 13 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 13 12 14 4 (set (reg/f:DI 85 [ p.3_4 ])
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [2 p+0 S8 A64])) "p0190r4_fig20.c":45:15 -1
+     (nil))
+(insn 14 13 15 4 (set (reg/f:DI 86 [ p.4_5 ])
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [2 p+0 S8 A64])) "p0190r4_fig20.c":45:17 -1
+     (nil))
+(insn 15 14 16 4 (set (reg:SI 95)
+        (mem:SI (reg/f:DI 86 [ p.4_5 ]) [1 *p.4_5+0 S4 A32])) "p0190r4_fig20.c":45:17 -1
+     (nil))
+(insn 16 15 17 4 (set (reg:DI 94)
+        (sign_extend:DI (reg:SI 95))) "p0190r4_fig20.c":45:17 -1
+     (nil))
+(insn 17 16 18 4 (set (reg:CCZ 17 flags)
+        (compare:CCZ (mem:SI (plus:DI (mult:DI (reg:DI 94)
+                        (const_int 4 [0x4]))
+                    (reg/f:DI 85 [ p.3_4 ])) [1 *_9+0 S4 A32])
+            (const_int 42 [0x2a]))) "p0190r4_fig20.c":45:5 -1
+     (nil))
+(insn 18 17 19 4 (set (reg:QI 97)
+        (eq:QI (reg:CCZ 17 flags)
+            (const_int 0 [0]))) "p0190r4_fig20.c":45:5 -1
+     (nil))
+(insn 19 18 20 4 (set (reg:SI 96)
+        (zero_extend:SI (reg:QI 97))) "p0190r4_fig20.c":45:5 -1
+     (nil))
+(insn 20 19 21 4 (set (reg:SI 5 di)
+        (reg:SI 96)) "p0190r4_fig20.c":45:5 -1
+     (nil))
+(insn 21 20 22 4 (set (reg:QI 0 ax)
+        (const_int 0 [0])) "p0190r4_fig20.c":45:5 -1
+     (nil))
+(call_insn 22 21 25 4 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("assert") [flags 0x41]  <function_decl 0x7f692c6aad00 assert>) [0 assert S1 A8])
+            (const_int 0 [0]))) "p0190r4_fig20.c":45:5 -1
+     (nil)
+    (expr_list (use (reg:QI 0 ax))
+        (expr_list:SI (use (reg:SI 5 di))
+            (nil))))
+(code_label 25 22 26 6 3 (nil) [1 uses])
+(note 26 25 0 6 [bb 6] NOTE_INSN_BASIC_BLOCK)

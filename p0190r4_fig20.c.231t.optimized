@@ -1,0 +1,70 @@
+
+;; Function thread0 (thread0, funcdef_no=0, decl_uid=1981, cgraph_uid=1, symbol_order=1)
+
+thread0 ()
+{
+  int * p;
+  int * _1;
+  long unsigned int __atomic_store_tmp.1_2;
+
+  <bb 2> [local count: 1073741824]:
+  p_5 = malloc (16);
+  assert (p_5);
+  *p_5 = -1;
+  MEM[(int *)p_5 + 168B] = 42;
+  _1 = p_5 + 4;
+  __atomic_store_tmp.1_2 = (long unsigned int) _1;
+  __atomic_store_8 (&gip, __atomic_store_tmp.1_2, 3);
+  return;
+
+}
+
+
+
+;; Function thread1 (thread1, funcdef_no=1, decl_uid=1987, cgraph_uid=2, symbol_order=2)
+
+Removing basic block 5
+thread1 ()
+{
+  int * dependent_ptr p;
+  long unsigned int _1;
+  atomic int * _2;
+  int * p.2_3;
+  int * p.3_4;
+  int * p.4_5;
+  int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  int * _9;
+  int _10;
+  _Bool _11;
+  int _12;
+
+  <bb 2> [local count: 1073741824]:
+  _1 = __atomic_load_8 (&gip, 1);
+  _2 = (atomic int *) _1;
+  p ={v} _2;
+  p.2_3 ={v} p;
+  if (p.2_3 != 0B)
+    goto <bb 3>; [53.47%]
+  else
+    goto <bb 4>; [46.53%]
+
+  <bb 3> [local count: 574129754]:
+  p.3_4 ={v} p;
+  p.4_5 ={v} p;
+  _6 = *p.4_5;
+  _7 = (long unsigned int) _6;
+  _8 = _7 * 4;
+  _9 = p.3_4 + _8;
+  _10 = *_9;
+  _11 = _10 == 42;
+  _12 = (int) _11;
+  assert (_12);
+
+  <bb 4> [local count: 1073741824]:
+  return;
+
+}
+
+

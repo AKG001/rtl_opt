@@ -27,7 +27,7 @@ _Atomic struct rcutest *gp;
 
 void thread0 ()
 {
-  _Dependent_ptr struct rcutest *p;
+  struct rcutest *p;
 
   p = (struct rcutest *)malloc (sizeof (*p));
   assert (p);
@@ -37,12 +37,12 @@ void thread0 ()
 
 void thread1 ()
 {
-  _Dependent_ptr struct rcutest *p;
+  struct rcutest * _Dependent_ptr p;
   long int q;
 
   p = rcu_dereference (gp);		/* { dg-warning "\\\[-Wincompatible-pointer-types]" } */
   q = (long int)(p);
-  p = (_Dependent_ptr struct rcutest *)q;
+  p = (struct rcutest * _Dependent_ptr)q;
   if (p)
     assert(p->a == 42);
 }
